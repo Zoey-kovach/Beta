@@ -1,0 +1,448 @@
+
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-content: center !important;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+}
+
+.container,
+.container-lg{
+
+  padding-top: 50px; 
+  margin-bottom: 20px; 
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-y: hidden;
+  margin-right: 10px;
+  overflow: hidden;
+
+ 
+ }
+ 
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+  transition: top 0.3s; 
+
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.nav-link{
+    font-size: 1.2rem;
+    color: rgb(93, 83, 83);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+  
+    
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+.navbar-nav .nav-link {
+  color: white !important; /* Ensure text color is white */
+  text-decoration: none !important; /* Remove underline */
+}
+
+
+
+
+@media (max-width: 990px) {
+ section{
+  margin-left: 0px;
+  margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+    align-items: center;
+    justify-content: center;
+    gap:0;
+    font-size: 14px;
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 14px; 
+  }
+
+ 
+}
+
+
+
+   
+} 
+#contact .contact-info,
+#contact form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.offcanvas.offcanvas-end {
+    width: 65%; 
+    box-shadow: none;
+}
+
+  #skills .nav-pills {
+      flex-direction:row;
+  }
+  #skills .nav-pills .nav-link {
+      min-width: 60%;
+  }
+  .contact-info h3, .contact-info p {
+    font-size: 14px;
+}
+.contact-info h4, .contact-form h4 {
+    font-size: 14px;
+}
+.container {
+    padding: 15px;
+}
+
+
+#home {
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  padding: 0; 
+}
+
+#home .container {
+  height: 100%; 
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+
+#home img {
+  border-radius: 50%; 
+  min-width: 100%; 
+  height: auto; 
+  max-width: 600px; 
+ 
+}
+
+
+
+
+#animate-container {
+    min-height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+.scroll-to-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color:rgb(23, 31, 36);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    animation: bounce 5s infinite alternate;
+}
+.scroll-to-button .fa { color: white; }
+.hidden { display: none; }
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+
+#contact .container > div {
+    flex: 1;
+    padding: 25px;
+}
+
+
+
+
+
+
+/* Container for skills */
+.skill {
+    margin-bottom: 3rem; /* Adjust margin as needed */
+}
+
+/* Progress bar container */
+.progress {
+    width: 100%;
+    height: 12px; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Background color of the progress container */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Hide overflowing content (progress bar) */
+}
+
+
+
+/* Progress bar animation */
+.progress-bar {
+    height: 100%; /* Full height of the progress bar */
+    width: 0%; /* Start with 0 width */
+    background-color: transparent; /* Transparent background initially */
+    transition: width 2s ease-in-out; /* Smooth transition */
+
+    /* Animation keyframes */
+    animation: fillProgress 2s forwards; /* Use keyframes for filling progress */
+}
+
+/* Keyframes for filling progress */
+@keyframes fillProgress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress-width); /* Dynamic width based on --progress-width variable */
+    }
+}
+
+/* Individual skill progress bars */
+
+/* HTML skill */
+.skill-html .progress-bar {
+    --progress-width: 95%; /* Width percentage for HTML */
+    background-color: #0961e7; /* Blue background color */
+}
+
+/* CSS skill */
+.skill-css .progress-bar {
+    --progress-width: 85%; /* Width percentage for CSS */
+    background-color: #f82e2e; /* Yellow background color */
+}
+
+/* Bootstrap skill */
+.skill-bootstrap .progress-bar {
+    --progress-width: 90%; /* Width percentage for Bootstrap */
+    background-color: #0dd6a4; /* Light blue background color */
+}
+
+/* SQL skill */
+.skill-sql .progress-bar {
+    --progress-width: 70%; /* Width percentage for SQL */
+    background-color: #343a40; /* Dark background color */
+}
+
+/* JavaScript skill */
+.skill-javascript .progress-bar {
+    --progress-width: 50%; /* Width percentage for JavaScript */
+    background-color: #6c757d; /* Gray background color */
+}
+
+
+  /* Media query for 700 to 980 pixels */
+@media (min-width: 700px) and (max-width: 980px) {
+    #home img {
+        width: 70%; /* Adjust image width to half the container */
+        max-width: 300px; /* Adjust maximum width to prevent overflow */
+    }
+}
+  /* Adjustments for smaller screens */
+  @media (max-width: 767.98px) {
+    #home .container {
+      padding-top: 20px ; /* Adjust padding to ensure it covers the screen */
+      flex-direction: column; /* Stack elements vertically */
+     
+    }
+    #home .row {
+      flex-direction: column; /* Stack columns vertically */
+      align-items: center; /* Center align items */
+    }
+    #home img {
+      width: 100%; /* Adjust image size to fill more space in its column */
+      height: auto; /* Maintain aspect ratio */
+      max-width: nonepx; /* Ensure the image is not too large */
+      margin-top: 50px; /* Adjust space between image and text */
+      margin-bottom: -20px;
+      
+    }
+    #home h1 {
+      text-align: center; /* Center align text */
+      font-size: 1.75rem; /* Make the text slightly bigger */
+      width: 90%; /* Ensure the text takes full width */
+      
+    }
+
+    .section{
+     
+      padding: -20px;
+
+    }
+    h3.text-center.pt-3.mt-5.justify-content-center.align-items-center {
+      margin-top: -30px !important; 
+      padding-top: -40px !important; 
+  }
+  .services- h4.mb-3.fw-bold {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+   }
+      
+      /* For large screens (lg and above) */
+      @media (min-width: 992px) {
+        #home img {
+          width: 150%; /* Set image width to 150% of its column on large screens */
+        }
+      }
+      
+      /* For medium screens (md) */
+      @media (min-width: 768px) and (max-width: 991px) {
+        #home img {
+          width: 100%; /* Adjust image width for medium screens */
+        }
+      }
+      
+      /* For small screens (sm and below) */
+      @media (max-width: 767px) {
+        #home img {
+          width: 100%; /* Set image width to 100% of its column on small screens */
+        }
+      }
+    
+      /* Adjust spacing for small screens */
+@media (max-width: 768px) {
+    .image-and-text {
+       gap: 6px; /* reduce the gap for small screens */
+     }
+   }
+   
+   /* Adjust spacing for medium screens */
+   @media (max-width: 992px) and (min-width: 769px) {
+    .image-wrapper {
+        margin-right: 15px;
+      }
+    
+   }
+
+ 
+
+@media only screen and (min-width: 800px) and (max-width: 1000px) {
+   
+    @media (max-width: 991.98px) {
+      #home .col-lg-6 {
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: center;
+        height: 30vh; 
+        padding-top: 40%;
+      }
+      #home img {
+        width: 110%; /* Adjust image size to fill more space in its column */
+      height: auto; /* Maintain aspect ratio */
+      max-width: nonepx; /* Ensure the image is not too large */
+      margin-top: 50px; /* Adjust space between image and text */
+      margin-bottom: -20px;
+      }
+     
+
+      #home {
+        font-size: 18px; /* Adjust overall font size */
+      }
+      
+      #home h1,
+      #home h3,
+      #home p {
+        font-size: 2.2rem; /* Adjust specific elements' font size */
+      }
+    }
+    
+    #about .col-lg-6
+    #about h4 {
+      display: flex;
+      flex-direction:row;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; 
+      padding-top: 40%;
+    }
+    
+  }
+    @media (max-width: 991.98px) {
+  section {
+    padding: 0; 
+  }
+  .row {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+    padding:0;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text content */
+  }
+  .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0; /* Add padding horizontally */
+    text-align: center; /* Center text content */
+    font: 14px;
+  
+  }
+  img {
+    max-width: 100%; /* Ensure image does not exceed column width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Adjust maximum height as needed */
+  }
+  h1,
+  h3,
+  p,
+  a {
+    font-size: 1rem; 
+  }
+
+  
+ 
+}
+
+
+
+
+  
+
+
+  .alert {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    text-align: center;
+}
+.alert-success {
+    background-color: #28a745;
+}
+.alert-danger {
+    background-color: #dc3545;
+}
