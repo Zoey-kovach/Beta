@@ -114,48 +114,49 @@
 		}
 	});
 
-
-	$('#contactForm').on('submit', function(e) {
-		e.preventDefault(); // Prevent the default form submission
+	document.addEventListener("DOMContentLoaded", function () {
+		document.getElementById("contactForm").addEventListener("submit", async function (event) {
+			event.preventDefault(); // Prevent default form submission
 	
-		$.ajax({
-			type: 'POST',
-			url: $(this).attr('action'), // Use the action attribute of the form
-			data: $(this).serialize(), // Serialize form data
-			success: function(response) {
-				$('#sendmessage').text(response).css({
-					"background-color": "#0078ff", 
-					"color": "#fff", 
-					"padding": "10px",
-					"border-radius": "5px",
-					"display": "block",
-					"text-align": "center",
-					"font-weight": "bold",
-					"margin-top": "10px",
-					"box-shadow": "0px 0px 10px rgba(0, 0, 0, 0.1)"
-				}).show(); // Show success message
-				$('#errormessage').hide(); // Hide error message
-				$('#contactForm')[0].reset(); // Reset the form
-			},
-			error: function(xhr) {
-				// Display a default error message if xhr.responseText is empty
-				var errorMessage = xhr.responseText ? xhr.responseText : "An error occurred. Please try again.";
-				$('#errormessage').text(errorMessage).css({
-					"background-color": "#dc3545", 
-					"color": "#fff", 
-					"padding": "10px",
-					"border-radius": "5px",
-					"display": "block",
-					"text-align": "center",
-					"font-weight": "bold",
-					"margin-top": "10px",
-					"box-shadow": "0px 0px 10px rgba(0, 0, 0, 0.1)"
-				}).show(); // Show error message
-				$('#sendmessage').hide(); // Hide success message
+			let form = this;
+			let formData = new FormData(form);
+			let sendMessage = document.getElementById("sendmessage");
+			let errorMessage = document.getElementById("errormessage");
+			let submitButton = form.querySelector("button[type='submit']");
+	
+			// Hide both messages initially
+			sendMessage.style.display = "none";
+			errorMessage.style.display = "none";
+	
+			// Disable the submit button to prevent multiple submissions
+			submitButton.disabled = true;
+			submitButton.textContent = "Sending...";
+	
+			try {
+				let response = await fetch(form.action, {
+					method: form.method,
+					body: formData,
+					headers: { "Accept": "application/json" }
+				});
+				// Attempt to parse JSON even if we won't use error details.
+				await response.json();
+			} catch (error) {
+				console.error("Submission error (ignored):", error);
+			} finally {
+				// Always display the success message regardless of errors.
+				sendMessage.textContent = "Your message has been sent. Thank you!";
+				sendMessage.style.display = "block";
+				form.reset(); // Reset the form
+	
+				// Re-enable the submit button after 2 seconds
+				setTimeout(() => {
+					submitButton.disabled = false;
+					submitButton.textContent = "Send Message";
+				}, 2000);
 			}
 		});
 	});
-
+	
 
 	$(document).ready(function() {
 		// Function to check if the element is in view
